@@ -593,7 +593,7 @@ class S(BaseHTTPRequestHandler):
                 
                 for word in letters:
                     output = ''
-                    for i in range(7):
+                    for i in range(8):
                         output = output + word
                     print(output)
                     s.set_text(output)
