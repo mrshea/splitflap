@@ -591,7 +591,7 @@ class S(BaseHTTPRequestHandler):
             
             while self.event.is_set():
                 for word in letters:
-                    for i in range(6):
+                    for i in range(5):
                         word = word + word
                     print(word)
                     s.set_text(word)
