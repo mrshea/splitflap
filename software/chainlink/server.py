@@ -591,7 +591,7 @@ class S(BaseHTTPRequestHandler):
             
             while self.event.is_set():
                 for word in letters:
-                    for i in range(2):
+                    for i in range(6):
                         word = word + word
                     print(word)
                     s.set_text(word)
@@ -624,13 +624,13 @@ class S(BaseHTTPRequestHandler):
             thread.daemon = True
             self.event.set()
             thread.start()
-            self.clockApp()
         elif command == "cycle":
             self.event.clear()
             thread = threading.Thread(target=self.randomWords, args=())
             thread.daemon = True
             self.event.set()
             self.cycleWords()
+            thread.start()
         elif command == "stop":
             self.event.clear()
         self._set_response()
