@@ -620,16 +620,15 @@ class S(BaseHTTPRequestHandler):
             thread.start()
         elif command == "clock":
             self.event.clear()
-            thread = threading.Thread(target=self.randomWords, args=())
+            thread = threading.Thread(target=self.clockApp, args=())
             thread.daemon = True
             self.event.set()
             thread.start()
         elif command == "cycle":
             self.event.clear()
-            thread = threading.Thread(target=self.randomWords, args=())
+            thread = threading.Thread(target=self.cycleWords, args=())
             thread.daemon = True
             self.event.set()
-            self.cycleWords()
             thread.start()
         elif command == "stop":
             self.event.clear()
