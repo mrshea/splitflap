@@ -590,8 +590,9 @@ class S(BaseHTTPRequestHandler):
             alphabet = s.get_alphabet()
             
             while self.event.is_set():
-                output = ''
+                
                 for word in letters:
+                    output = ''
                     for i in range(7):
                         output = output + word
                     print(output)
