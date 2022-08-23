@@ -522,7 +522,7 @@ letters = [
 
 def _run():
 
-
+    
 
     def takeInput():
         while True:
@@ -565,14 +565,6 @@ def _run():
         modules = s.get_num_modules()
         alphabet = s.get_alphabet()
 
-        # Show a random word every 10 seconds
-#        while True:
-#            for word in letters:
-#                for i in range(2):
-#                    word = word + word
-#                print(word)
-#                s.set_text(word)
-#                time.sleep(1)
 
         print("What mode would you like to run in:")
         print("1: Input")
@@ -591,7 +583,7 @@ def _run():
         elif choice == "4":
             cycleWords()
                 
-                
+
 
                     
 
