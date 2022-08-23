@@ -590,11 +590,11 @@ class S(BaseHTTPRequestHandler):
             alphabet = s.get_alphabet()
             
             while self.event.is_set():
+                output = ''
                 for word in letters:
-                    for i in range(5):
-                        word = word + word
-                    print(word)
-                    s.set_text(word)
+                    for i in range(8):
+                        output = output + word
+                    s.set_text(output)
                     time.sleep(1)
 
     def do_POST(self):
