@@ -592,7 +592,7 @@ class S(BaseHTTPRequestHandler):
             while self.event.is_set():
                 output = ''
                 for word in letters:
-                    for i in range(8):
+                    for i in range(7):
                         output = output + word
                     s.set_text(output)
                     time.sleep(1)
