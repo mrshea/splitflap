@@ -594,6 +594,7 @@ class S(BaseHTTPRequestHandler):
                 for word in letters:
                     for i in range(7):
                         output = output + word
+                    print(output)
                     s.set_text(output)
                     time.sleep(1)
 
