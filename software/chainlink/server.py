@@ -546,7 +546,7 @@ class S(BaseHTTPRequestHandler):
         with splitflap_context(p) as s:
             modules = s.get_num_modules()
             alphabet = s.get_alphabet()
-            
+
             s.set_text(word)
             time.sleep(5)
             
@@ -589,7 +589,7 @@ class S(BaseHTTPRequestHandler):
             modules = s.get_num_modules()
             alphabet = s.get_alphabet()
             
-            while running:
+            while self.event.is_set():
                 for word in letters:
                     for i in range(2):
                         word = word + word
