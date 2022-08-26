@@ -310,11 +310,11 @@ def ask_for_serial_port():
     )
     for i, port in enumerate(ports):
         print('[{: 2}] {} - {}'.format(i, port.device, port.description))
-    print()
-    value = six.moves.input('Use which port? ')
-    port_index = int(value)
-    assert 0 <= port_index < len(ports)
-    return ports[port_index].device
+    # print()
+    # value = six.moves.input('Use which port? ')
+    # port_index = int(value)
+    # assert 0 <= port_index < len(ports)
+    return ports[0].device
 
 
 def _run_example():
