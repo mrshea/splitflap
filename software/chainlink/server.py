@@ -613,6 +613,7 @@ class S(BaseHTTPRequestHandler):
             word = value[0]
         running = False
         if command == "input":
+            self.event.clear()
             self.takeInput(word)
         elif command == "random":
             self.event.clear()
