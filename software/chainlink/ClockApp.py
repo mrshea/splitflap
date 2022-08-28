@@ -538,7 +538,7 @@ def _run():
             
     def clockApp():
         now = datetime.now()
-        current_time = now.strftime("%I:%M:$S")
+        current_time = now.strftime("%I:%M:%S")
         print("Current Time =", current_time)
         s.set_text("   " + current_time)
 
@@ -546,7 +546,7 @@ def _run():
             delta = datetime.now() - now
             if delta.seconds >= 1:
                 now = datetime.now()
-                current_time = now.strftime("%I:%M:$S")
+                current_time = now.strftime("%I:%M:%S")
                 s.set_text("   " + current_time)
             
 
