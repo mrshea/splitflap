@@ -561,6 +561,16 @@ class S(BaseHTTPRequestHandler):
                 print(word)
                 s.set_text(word)
                 time.sleep(5)
+
+    def TheDate(self):
+        p = ask_for_serial_port()
+        with splitflap_context(p) as s:
+            modules = s.get_num_modules()
+            alphabet = s.get_alphabet()
+            now = datetime.now()
+            current_time = now.strftime("%m:%d:%y")
+            print("date =", current_time)
+            s.set_text("   " + current_time)
             
             
     def clockApp(self):
@@ -575,7 +585,7 @@ class S(BaseHTTPRequestHandler):
             s.set_text("   " + current_time)
             while datetime.now().strftime("%-S") != '0':
                 time.sleep(0.5)
-                
+
             now = datetime.now()
             current_time = now.strftime("%I:%M")
             print("Current Time =", current_time)
@@ -641,6 +651,11 @@ class S(BaseHTTPRequestHandler):
             thread = threading.Thread(target=self.cycleWords, args=())
             thread.daemon = True
             self.event.set()
+            thread.start()
+        elif command == "cal":
+            self.event.clear()
+            thread = threading.Thread(target=self.TheDate, args=())
+            thread.daemon = True
             thread.start()
         elif command == "stop":
             self.event.clear()
