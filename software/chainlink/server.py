@@ -573,6 +573,13 @@ class S(BaseHTTPRequestHandler):
             current_time = now.strftime("%I:%M")
             print("Current Time =", current_time)
             s.set_text("   " + current_time)
+            while datetime.now().strftime("%-S") != '0':
+                time.sleep(0.5)
+                
+            now = datetime.now()
+            current_time = now.strftime("%I:%M")
+            print("Current Time =", current_time)
+            s.set_text("   " + current_time)
 
             while self.event.is_set():
                 delta = datetime.now() - now
@@ -592,6 +599,8 @@ class S(BaseHTTPRequestHandler):
             while self.event.is_set():
                 
                 for word in letters:
+                    if not self.event.is_set():
+                        continue
                     output = ''
                     for i in range(8):
                         output = output + word
