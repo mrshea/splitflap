@@ -568,9 +568,9 @@ class S(BaseHTTPRequestHandler):
             modules = s.get_num_modules()
             alphabet = s.get_alphabet()
             now = datetime.now()
-            current_time = now.strftime("%m:%d:%y")
+            current_time = now.strftime('%m:%d:%y')
             print("date =", current_time)
-            s.set_text("   " + current_time)
+            s.set_text(current_time)
             
             
     def clockApp(self):
