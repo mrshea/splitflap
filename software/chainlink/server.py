@@ -572,6 +572,17 @@ class S(BaseHTTPRequestHandler):
             print("date =", current_time)
             s.set_text(current_time)
             
+    def lunch(self):
+        p = ask_for_serial_port()
+        with splitflap_context(p) as s:
+            modules = s.get_num_modules()
+            alphabet = s.get_alphabet()
+            s.set_text("lunch")
+            time.sleep(5)
+            s.set_text("at")
+            time.sleep(5)
+            s.set_text("12:15")
+
             
     def clockApp(self):
         p = ask_for_serial_port()
@@ -659,6 +670,11 @@ class S(BaseHTTPRequestHandler):
             thread.start()
         elif command == "stop":
             self.event.clear()
+        elif command == "lunch":
+            self.event.clear()
+            thread = threading.Thread(target=self.lunch, args=())
+            thread.daemon = True
+            thread.start()
         self._set_response()
         self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
 
