@@ -612,6 +612,7 @@ class S(BaseHTTPRequestHandler):
             
 
     def cycleWords(self):
+        print("Cycling")
         p = ask_for_serial_port()
         with splitflap_context(p) as s:
             modules = s.get_num_modules()
