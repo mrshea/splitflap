@@ -642,33 +642,33 @@ class S(BaseHTTPRequestHandler):
             command = key
             word = value[0]
         running = False
-        if command == "input":
+        if command == "Input":
             self.event.clear()
             self.takeInput(word)
-        elif command == "random":
+        elif command == "Random":
             self.event.clear()
             thread = threading.Thread(target=self.randomWords, args=())
             thread.daemon = True
             self.event.set()
             thread.start()
-        elif command == "clock":
+        elif command == "Clock":
             self.event.clear()
             thread = threading.Thread(target=self.clockApp, args=())
             thread.daemon = True
             self.event.set()
             thread.start()
-        elif command == "cycle":
+        elif command == "Cycle":
             self.event.clear()
             thread = threading.Thread(target=self.cycleWords, args=())
             thread.daemon = True
             self.event.set()
             thread.start()
-        elif command == "cal":
+        elif command == "Calendar":
             self.event.clear()
             thread = threading.Thread(target=self.TheDate, args=())
             thread.daemon = True
             thread.start()
-        elif command == "stop":
+        elif command == "Stop":
             self.event.clear()
         elif command == "lunch":
             self.event.clear()
