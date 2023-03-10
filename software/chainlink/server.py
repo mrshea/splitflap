@@ -653,6 +653,9 @@ class S(BaseHTTPRequestHandler):
         if command == "Input":
             self.event.clear()
             self.takeInput(word)
+        if command == "Stock":
+            self.event.clear()
+            self.stockTicker(word)
         elif command == "Random":
             self.event.clear()
             thread = threading.Thread(target=self.randomWords, args=())
