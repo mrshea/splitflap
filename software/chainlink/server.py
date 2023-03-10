@@ -7,6 +7,8 @@ import time
 from datetime import datetime
 import asyncio
 import threading
+import yfinance as yf
+
 
 from splitflap_proto import (
     ask_for_serial_port,
@@ -610,6 +612,12 @@ class S(BaseHTTPRequestHandler):
                     print(current_time)
                     s.set_text("   " + current_time)
             
+    def stockTicker(self, sym):
+        ticker = yf.Ticker(sym).info
+        market_price = ticker['regularMarketPrice']
+        previous_close_price = ticker['regularMarketPreviousClose']
+        print('Ticker: GOOGL')
+        print('Market Price:', market_price)
 
     def cycleWords(self):
         print("Cycling")
