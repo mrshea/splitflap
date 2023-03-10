@@ -614,7 +614,7 @@ class S(BaseHTTPRequestHandler):
             
     def stockTicker(self, sym):
         ticker = yf.Ticker(sym).info
-        market_price = ticker['regularMarketPrice']
+        ticker = yf.Ticker('GOOGL').info
         previous_close_price = ticker['regularMarketPreviousClose']
         print('Ticker: GOOGL')
         print('Market Price:', market_price)
