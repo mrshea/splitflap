@@ -561,7 +561,7 @@ def _run():
                 time.sleep(1)
                     
                     
-    p = ask_for_serial_port(devmode=False)
+    p = ask_for_serial_port(devmode=True)
     with splitflap_context(p) as s:
         modules = s.get_num_modules()
         alphabet = s.get_alphabet()
