@@ -532,6 +532,7 @@ def _run():
     def randomWords():
         while True:
             word = random.choice(words)
+            print(word)
             s.set_text(word)
             time.sleep(5)
             
@@ -560,7 +561,7 @@ def _run():
                 time.sleep(1)
                     
                     
-    p = ask_for_serial_port(devmode=True)
+    p = ask_for_serial_port(devmode=False)
     with splitflap_context(p) as s:
         modules = s.get_num_modules()
         alphabet = s.get_alphabet()
