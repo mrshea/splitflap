@@ -280,7 +280,7 @@ def splitflap_context(serial_port, default_logging=True, wait_for_comms=True):
 
         if wait_for_comms:
             logging.info('Connecting to splitflap...')
-            q = Queue(0)
+            q = Queue(1)
             def startup_handler(message):
                 try:
                     q.put_nowait(None)
@@ -299,7 +299,7 @@ def splitflap_context(serial_port, default_logging=True, wait_for_comms=True):
             s.shutdown()
 
 
-def ask_for_serial_port():
+def ask_for_serial_port(devmode=False):
     print('Available ports:')
     ports = sorted(
         filter(
@@ -310,11 +310,14 @@ def ask_for_serial_port():
     )
     for i, port in enumerate(ports):
         print('[{: 2}] {} - {}'.format(i, port.device, port.description))
-    # print()
-    # value = six.moves.input('Use which port? ')
-    # port_index = int(value)
-    # assert 0 <= port_index < len(ports)
-    return ports[0].device
+    if devmode:
+        print()
+        value = six.moves.input('Use which port? ')
+        port_index = int(value)
+        assert 0 <= port_index < len(ports)
+    else:
+        port_index = 0
+    return ports[port_index].device
 
 
 def _run_example():
