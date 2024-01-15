@@ -280,7 +280,7 @@ def splitflap_context(serial_port, default_logging=True, wait_for_comms=True):
 
         if wait_for_comms:
             logging.info('Connecting to splitflap...')
-            q = Queue(1)
+            q = Queue(0)
             def startup_handler(message):
                 try:
                     q.put_nowait(None)
