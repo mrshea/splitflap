@@ -552,13 +552,7 @@ def _run():
             
 
     def cycleWords():
-        while True:
-            for word in letters:
-                for i in range(2):
-                    word = word + word
-                print(word)
-                s.set_text(word)
-                time.sleep(1)
+            s.hard_reset()
                     
                     
     p = ask_for_serial_port(devmode=True)
