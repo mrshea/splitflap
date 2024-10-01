@@ -611,6 +611,8 @@ class S(BaseHTTPRequestHandler):
                     current_time = now.strftime("%I:%M")
                     print(current_time)
                     s.set_text("   " + current_time)
+    def resetDisplay(self):
+        s.hard_reset()
             
     def stockTicker(self, sym):
         ticker = yf.Ticker(sym).info
@@ -653,6 +655,9 @@ class S(BaseHTTPRequestHandler):
         if command == "Input":
             self.event.clear()
             self.takeInput(word)
+        if command == "Reset":
+            self.event.clear()
+            self.resetDisplay()
         if command == "Stock":
             self.event.clear()
             self.stockTicker(word)
