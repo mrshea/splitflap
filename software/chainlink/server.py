@@ -612,7 +612,14 @@ class S(BaseHTTPRequestHandler):
                     print(current_time)
                     s.set_text("   " + current_time)
     def resetDisplay(self):
-        s.hard_reset()
+        p = ask_for_serial_port()
+        with splitflap_context(p) as s:
+            modules = s.get_num_modules()
+            alphabet = s.get_alphabet()
+
+            s.hard_reset()
+            time.sleep(5)
+        
             
     def stockTicker(self, sym):
         ticker = yf.Ticker(sym).info
